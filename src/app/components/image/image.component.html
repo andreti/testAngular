@@ -1,0 +1,14 @@
+<input id="inputSelectImage" type="file" accept="image/*" (change)="updateSource($event)" style="display: none;">
+
+<ng-template [ngIf]="source" [ngIfElse]="imageBlank">
+    <div style="text-align: center;">
+        <img *ngIf="source" [src]="source" src="" height="100" width="100" class="rounded-circle">
+        <button mat-fab mat-fab color="primary" (click)="openSelectImage()" class="btn-edit">
+        <mat-icon>edit</mat-icon>
+    </button>
+    </div>
+</ng-template>
+
+<ng-template #imageBlank>
+    <img src="https://www.foodmeup.io/wp-content/themes/atomlab/assets/images/avatar-placeholder.jpg" height="100" width="100" class="rounded-circle img-hover" (click)="openSelectImage()">
+</ng-template>
